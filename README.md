@@ -139,7 +139,7 @@ The `summarize_text` function in `main.py` typically follows these steps (based 
     The function extracts and returns the summary from the LLM’s response.
     
 ---
-    
+
 ## Ollama Setup and Running Local LLMs
 
 1. **Download and Install Ollama**  
@@ -196,4 +196,39 @@ The `summarize_text` function in `main.py` typically follows these steps (based 
     Once the environment variables are set, tracing will begin automatically—no further code changes are required.
 
 
+# <**center**> AI Agents
+![AI Agents definition](image.png)
+Definition : An agent is a software system that uses LLMs as reasoning engine to decide what actions to take, and then execute those actions.
+Unline chains where the sequence of actions are hardcoded, the agents dynamically determines which tools or steps to ne used to solve and take the action. 
+In Chain, we as developer define the flow but in ase of agents its the agent which decide on the flow. Something as below:
+![Agent as brain](image-1.png)
 
+ReAct agent: Its a specific type of an agent architecture that follows the react paradigm.
+![alt text](image-2.png)
+
+This script demonstrates the creation of a simple AI-powered search agent using LangChain and Ollama. 
+The agent is capable of responding to user queries by invoking a custom search tool. The search tool 
+is currently implemented as a stub that returns a dummy weather result for demonstration purposes.
+
+## AISearchAgent - main.py
+
+This module demonstrates how to build a simple AI-powered search agent using LangChain and Ollama. 
+It defines a custom search tool, integrates it with a language model, and creates an agent capable 
+of responding to user queries. The current implementation returns a dummy weather result for 
+demonstration purposes. To adapt this for real-world use, replace the search tool's logic with 
+actual search or API integration.
+
+**Features:**
+- Loads environment variables using `dotenv`
+- Defines a custom search tool with the `@tool` decorator
+- Uses the ChatOllama LLM ("gemma4:e2b" model)
+- Creates an agent with LangChain's `create_agent`
+- Demonstrates agent invocation with a sample query
+
+**How to Run:**
+1. Ensure dependencies are installed (`langchain`, `langchain_ollama`, `python-dotenv`).
+2. Run `main.py` to see the agent in action.
+
+**Customization:**
+Replace the logic inside the `search` tool with your own search implementation (e.g., API calls, 
+database queries) to enable real search capabilities.
