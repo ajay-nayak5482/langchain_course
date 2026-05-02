@@ -137,3 +137,63 @@ The `summarize_text` function in `main.py` typically follows these steps (based 
 
 5. **Return the Summary:**  
     The function extracts and returns the summary from the LLM’s response.
+    
+---
+    
+## Ollama Setup and Running Local LLMs
+
+1. **Download and Install Ollama**  
+    Visit [Ollama's official website](https://ollama.com/) to download and install the application for your operating system.
+
+2. **Browse and Select Models**  
+    Go to the [Ollama models page](https://ollama.com/search) to search for available models (e.g., `gemma4:e2b`, `gemma3:270m`, `gemma3:1b`, etc.).
+
+3. **Download a Model**  
+    Use the following command to download your chosen model (replace `MODEL_NAME` with the actual model name, e.g., `gemma3:270m`):
+    ```bash
+    ollama pull MODEL_NAME
+    ```
+
+4. **Run a Model Locally**  
+    Start a local instance of a model with:
+    ```bash
+    ollama run MODEL_NAME
+    ```
+    Example:
+    ```bash
+    ollama run gemma3:270m
+    ```
+
+5. **List Installed Models**  
+    To see all models installed locally, run:
+    ```bash
+    ollama list
+    ```
+
+---
+
+## LangSmith Setup
+
+1. **Sign Up and Log In**  
+    Go to [LangSmith](https://smith.langchain.com/) and log in using your preferred method (e.g., Google account).
+
+2. **Create a New Project**  
+    On the Home page, create a new project for tracing. Fill in the required project details.
+
+3. **Configure LangSmith for Tracing**  
+    After creating the project, follow the on-screen instructions to set up LangSmith tracing.
+
+4. **Generate API Key and Set Environment Variables**  
+    Click "Generate API Key" and copy the environment variables provided.
+
+    - **Note:** By default, the API endpoint is set for the USA region. If you are outside the USA, update your environment variable as follows:
+        ```
+        LANGSMITH_ENDPOINT=https://eu.api.smith.langchain.com
+        ```
+        This helps avoid authentication errors.
+
+5. **Start Tracing**  
+    Once the environment variables are set, tracing will begin automatically—no further code changes are required.
+
+
+
