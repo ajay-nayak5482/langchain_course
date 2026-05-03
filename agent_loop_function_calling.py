@@ -6,7 +6,7 @@ from langchain_core.messages import HumanMessage, SystemMessage, ToolMessage
 load_dotenv()
 
 MAX_ITERATIONS = 5
-MODEL_NAME = "gemma4:e2b"
+MODEL_NAME = "qwen3:1.7b"
 
 @tool
 def get_product_price(product_name: str) -> float:
@@ -93,4 +93,4 @@ def run_agent(question: str):
     return None
 
 if __name__ == "__main__":
-    run_agent("What is the price of laptop after applying a gold discount?")
+    run_agent("What is the price of a laptop after applying a gold discount?")
